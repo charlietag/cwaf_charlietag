@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------
+#         Main Config
+# ---------------------------------------------------------------------
+PARAM_COMODO_API_URL="https://waf.comodo.com/api"
+
+# ------- COMODO -----
+# Sign UP : https://waf.comodo.com/
+PARAM_COMODO_RULES_account="xxx@gmail.com"
+PARAM_COMODO_RULES_password="xxxxxxxxxxxxx"
+
+
+
+
+
+
+
+
+
+
+
+# >>>>>>>>>>>  Do Not Modify This Section <<<<<<<<<<<<
+# --- COMODO Rules version---
+PARAM_COMODO_API_JSON="$(
+  curl -X POST \
+  --data "login=${PARAM_COMODO_RULES_account}&password=${PARAM_COMODO_RULES_password}&act=info&source=4" \
+  -s ${PARAM_COMODO_API_URL}
+)"
+
+PARAM_COMODO_RULES_VER="$(
+  echo "${PARAM_COMODO_API_JSON}" | \
+  grep -Eo "\"current_version\":\"[[:digit:]\.]+\"" | \
+  awk -F "\"" '{print $4}'
+)"
+
+  #PARAM_COMODO_RULES_MD5SUM="$(
+  #  echo "${PARAM_COMODO_API_JSON}" | \
+  #  grep -Eo "\"md5_full\":\"[[:alnum:]\.]+\"" | \
+  #  awk -F "\"" '{print $4}'
+  #)"
+# --- COMODO Rules version---
+
+# >>>>>>>>>>>  Do Not Modify This Section <<<<<<<<<<<<
