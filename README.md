@@ -1,5 +1,11 @@
 # cwaf rules backup
 
+* Git clone scripts
+
+  ```bash
+  git clone https://github.com/charlietag/cwaf_charlietag.git
+  ```
+
 * Setup `conf/cwaf_param.cfg`
 
   ```bash
