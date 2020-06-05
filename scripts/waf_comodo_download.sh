@@ -40,7 +40,7 @@ if [[ -n "${IF_RULES_DOWNLOADED}" ]]; then
   echo 
   echo ">>>>>>>>>>>>>>>"
   echo "Copy ${IF_RULES_DOWNLOADED} ---> ${THIS_PATH_OUTPUT}/ ....!"
-  \cp -f ${IF_RULES_DOWNLOADED} ${THIS_PATH_OUTPUT}/
+  \cp -f ${THIS_PATH_TMP}/${IF_RULES_DOWNLOADED} ${THIS_PATH_OUTPUT}/
 
 fi
 
